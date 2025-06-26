@@ -29,7 +29,6 @@ You’ll learn how to:
 
 **Postman Collections:**
 
-* `WebDriver_Raw_Control_with_Variables.postman_collection.json`
 * `Simple_Google_Search.postman_collection.json`
 
 **Environment File:**
