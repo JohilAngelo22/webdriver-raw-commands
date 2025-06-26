@@ -1,0 +1,105 @@
+{
+  "info": {
+    "name": "Simple Google Search via WebDriver",
+    "_postman_id": "simple-google-search",
+    "description": "Launch Google and perform a search using WebDriver raw protocol.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Start Session",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"capabilities\": {\n    \"firstMatch\": [\n      {}\n    ]\n  }\n}"
+        },
+        "url": {
+          "raw": "{{host}}/session"
+        }
+      }
+    },
+    {
+      "name": "Navigate to Google",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"url\": \"https://www.google.com\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/session/{{sessionId}}/url"
+        }
+      }
+    },
+    {
+      "name": "Find Search Input",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"using\": \"name\",\n  \"value\": \"q\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/session/{{sessionId}}/element"
+        }
+      }
+    },
+    {
+      "name": "Send Keys to Search",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"Selenium WebDriver\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/session/{{sessionId}}/element/{{elementId}}/value"
+        }
+      }
+    },
+    {
+      "name": "Press Enter",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"text\": \"\\ue007\"\n}"
+        },
+        "url": {
+          "raw": "{{host}}/session/{{sessionId}}/element/{{elementId}}/value"
+        }
+      }
+    }
+  ]
+}
